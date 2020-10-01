@@ -1,3 +1,19 @@
+const db = require('mongoose')
+const model = require('./model')
+
+const uri = "mongodb+srv://ups:ups2020@cluster0.7kqtt.gcp.mongodb.net/<utups>?retryWrites=true&w=majority";
+
+db.Promise = global.Promise
+db.connect(uri,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    dbName: utups,
+
+})
+    .then((data)=>{console.log('[db] .Conectada con exito')})
+    .catch((error)=>{console.error('[error log]'+error)})
+
+
 const list = []
 
 function addCarrera( objeto ) {
